@@ -1,3 +1,4 @@
+// filepath: /Users/MacBook/Proyectos_web/Generate_token_secret/docs/scripts/main.js
 function generateToken(length) {
     const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     let token = '';

@@ -7,14 +7,20 @@ Este proyecto es una aplicación web simple que permite generar un token secreto
 El proyecto tiene la siguiente estructura de archivos:
 
 ```
-token-generator
-├── src
-│   ├── index.html        # Estructura principal de la página web
-│   ├── styles
-│   │   └── styles.css    # Estilos CSS para la página web
-│   └── scripts
-│       └── main.js       # Lógica en JavaScript para generar el token
-└── README.md             # Documentación del proyecto
+docs
+├── index.html - # Estructura principal de la página web
+│        
+│
+├── styles
+│        └── styles.css - # Estilos CSS para la página web
+│        
+│
+├── scripts
+│         └── main.js - # Lógica en JavaScript para generar el token
+│        
+│
+└── README.md - # Documentación del proyecto
+
 ```
 
 ## Instrucciones de Uso
