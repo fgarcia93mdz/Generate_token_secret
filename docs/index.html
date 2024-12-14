@@ -4,15 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/styles.css">
-    <title>Generador de Token Secreto</title>
+    <title>Generador de Secretos</title>
 </head>
 <body>
     <div class="container">
-        <h1>Generador de Token Secreto</h1>
+        <h1>Generador de Secretos</h1>
         <form id="token-form">
-            <button type="submit">Generar Token</button>
+            <button type="submit">Generar Secretos</button>
         </form>
-        <div id="token-display" class="token-display"></div>
+        <div class="display-container">
+            <div id="token-display" class="display-item">
+                <span id="token-text"></span>
+                <button class="copy-button" onclick="copyToClipboard('token-text')" style="display: none;">Copiar</button>
+            </div>
+            <div id="session-display" class="display-item">
+                <span id="session-text"></span>
+                <button class="copy-button" onclick="copyToClipboard('session-text')" style="display: none;">Copiar</button>
+            </div>
+            <div id="secret-key-prod-display" class="display-item">
+                <span id="secret-key-prod-text"></span>
+                <button class="copy-button" onclick="copyToClipboard('secret-key-prod-text')" style="display: none;">Copiar</button>
+            </div>
+            <div id="secret-key-display" class="display-item">
+                <span id="secret-key-text"></span>
+                <button class="copy-button" onclick="copyToClipboard('secret-key-text')" style="display: none;">Copiar</button>
+            </div>
+        </div>
+        <div id="toast" class="toast">Texto copiado al portapapeles</div>
     </div>
     <script src="scripts/main.js"></script>
 </body>
