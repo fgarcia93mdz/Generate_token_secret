@@ -8,29 +8,95 @@
 </head>
 <body>
     <div class="container">
-        <h1>Generador de Secretos</h1>
-        <form id="token-form">
-            <button type="submit">Generar Secretos</button>
-        </form>
-        <div class="display-container">
-            <div id="token-display" class="display-item">
-                <span id="token-text"></span>
-                <button class="copy-button" onclick="copyToClipboard('token-text')" style="display: none;">Copiar</button>
-            </div>
-            <div id="session-display" class="display-item">
-                <span id="session-text"></span>
-                <button class="copy-button" onclick="copyToClipboard('session-text')" style="display: none;">Copiar</button>
-            </div>
-            <div id="secret-key-prod-display" class="display-item">
-                <span id="secret-key-prod-text"></span>
-                <button class="copy-button" onclick="copyToClipboard('secret-key-prod-text')" style="display: none;">Copiar</button>
-            </div>
-            <div id="secret-key-display" class="display-item">
-                <span id="secret-key-text"></span>
-                <button class="copy-button" onclick="copyToClipboard('secret-key-text')" style="display: none;">Copiar</button>
+        <h1>Generador de Secretos y Contraseñas</h1>
+
+        <!-- Navegación por tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="tokens">🔑 Tokens / Secretos</button>
+            <button class="tab-btn" data-tab="passwords">🔐 Contraseñas</button>
+        </div>
+
+        <!-- Tab: Tokens / Secretos -->
+        <div id="tab-tokens" class="tab-content active">
+            <form id="token-form">
+                <button type="submit">Generar Secretos</button>
+            </form>
+            <div class="display-container">
+                <div id="token-display" class="display-item">
+                    <span id="token-text"></span>
+                    <button class="copy-button" onclick="copyToClipboard('token-text')" style="display: none;">Copiar</button>
+                </div>
+                <div id="session-display" class="display-item">
+                    <span id="session-text"></span>
+                    <button class="copy-button" onclick="copyToClipboard('session-text')" style="display: none;">Copiar</button>
+                </div>
+                <div id="secret-key-prod-display" class="display-item">
+                    <span id="secret-key-prod-text"></span>
+                    <button class="copy-button" onclick="copyToClipboard('secret-key-prod-text')" style="display: none;">Copiar</button>
+                </div>
+                <div id="secret-key-display" class="display-item">
+                    <span id="secret-key-text"></span>
+                    <button class="copy-button" onclick="copyToClipboard('secret-key-text')" style="display: none;">Copiar</button>
+                </div>
             </div>
         </div>
-        <div id="toast" class="toast">Texto copiado al portapapeles</div>
+
+        <!-- Tab: Generador de Contraseñas -->
+        <div id="tab-passwords" class="tab-content">
+            <div class="password-generator">
+
+                <!-- Perfiles de plataforma -->
+                <div class="preset-section">
+                    <label class="section-label">Perfil de plataforma:</label>
+                    <div class="preset-buttons">
+                        <button class="preset-btn" data-preset="windows">🖥 PC / Windows</button>
+                        <button class="preset-btn" data-preset="outlook">📧 Outlook / M365</button>
+                        <button class="preset-btn" data-preset="odoo">🔷 Odoo</button>
+                        <button class="preset-btn" data-preset="bitrix">📊 Bitrix24</button>
+                        <button class="preset-btn active" data-preset="universal">🌐 Universal</button>
+                    </div>
+                </div>
+
+                <!-- Info del perfil seleccionado -->
+                <div id="preset-info" class="preset-info"></div>
+
+                <!-- Longitud -->
+                <div class="length-section">
+                    <label class="section-label">Longitud: <span id="length-display" class="length-value">16</span> caracteres</label>
+                    <input type="range" id="pwd-length" min="6" max="64" value="16" class="range-input">
+                </div>
+
+                <!-- Opciones de caracteres -->
+                <div class="options-section">
+                    <label class="checkbox-label"><input type="checkbox" id="opt-upper" checked> Mayúsculas (A-Z)</label>
+                    <label class="checkbox-label"><input type="checkbox" id="opt-lower" checked> Minúsculas (a-z)</label>
+                    <label class="checkbox-label"><input type="checkbox" id="opt-numbers" checked> Números (0-9)</label>
+                    <label class="checkbox-label"><input type="checkbox" id="opt-special" checked> Especiales (!@#$…)</label>
+                </div>
+
+                <!-- Botón generar -->
+                <div class="generate-section">
+                    <button id="generate-pwd-btn">Generar Contraseña</button>
+                </div>
+
+                <!-- Resultado -->
+                <div id="pwd-result" style="display:none">
+                    <div class="display-item" id="pwd-display">
+                        <span id="pwd-text" class="pwd-text"></span>
+                        <button class="copy-pwd-btn" onclick="copyPassword()">Copiar</button>
+                    </div>
+                    <div class="strength-container">
+                        <div class="strength-bar">
+                            <div id="strength-fill" class="strength-fill"></div>
+                        </div>
+                        <span id="strength-label" class="strength-label"></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="toast" class="toast">Copiado al portapapeles</div>
     </div>
     <script src="scripts/main.js"></script>
 </body>
